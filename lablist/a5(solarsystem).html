@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>Sun, Earth, and Moon Animation</title> 
+    <style> 
+      canvas { 
+        border: 1px solid blue; 
+      } 
+    </style> 
+  </head> 
+  <body bgcolor="blue"> 
+    <canvas id="canvas" width="800" height="600" ></canvas> 
+    <script> 
+       // Set up the canvas and drawing context 
+      var canvas = document.getElementById('canvas'); 
+      var ctx = canvas.getContext('2d'); 
+       
+      // Define the sun, earth, and moon objects 
+      var sun = {x: canvas.width / 2, y: canvas.height / 2, radius: 50, color: 
+'yellow'}; 
+      var earth = { radius: 20, angle: 1}; 
+      var moon = {radius: 10, angle: 1}; 
+       
+      // Define the animation loop 
+      function animate() { 
+        // Clear the canvas 
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+         
+        // Draw the sun 
+        ctx.beginPath(); 
+        ctx.arc(sun.x, sun.y, sun.radius, 0, 2 * Math.PI); 
+        ctx.fillStyle = sun.color; 
+        ctx.fill(); 
+         
+ //kakshe(round line) 
+ ctx.strokeStyle="black"; 
+ ctx.beginPath(); 
+ ctx.arc(400,305,200,0,2*Math.PI); 
+ ctx.stroke(); 
+  
+        // Draw the earth 
+        ctx.beginPath(); 
+        ctx.arc(earth.x, earth.y, earth.radius, 0, 2 * Math.PI); 
+        ctx.fillStyle = "green"; 
+        ctx.fill(); 
+         
+        // Draw the moon 
+        ctx.beginPath(); 
+        ctx.arc(moon.x, moon.y, moon.radius, 0, 2 * Math.PI); 
+        ctx.fillStyle = "white"; 
+        ctx.fill(); 
+         
+        // Update the positions of the earth and moon 
+        earth.angle += 0.01; 
+        moon.angle += 0.05; 
+        earth.x = sun.x + 200 * Math.cos(earth.angle); 
+        earth.y = sun.y + 200 * Math.sin(earth.angle); 
+        moon.x = earth.x + 50 * Math.cos(moon.angle); 
+        moon.y = earth.y + 50 * Math.sin(moon.angle); 
+               
+ // Request the next animation frame 
+        requestAnimationFrame(animate); 
+      } 
+       
+      // Start the animation loop 
+      animate(); 
+    </script> 
+  </body> 
+</html>
+
