@@ -2,7 +2,7 @@
 <html> 
   <head> 
     <meta charset="UTF-8"> 
-    <title>Sun, Earth, and Moon Animation</title> 
+    <title>Sun, Earth and Moon Animation</title> 
     <style> 
       canvas { 
         border: 1px solid blue; 
@@ -17,8 +17,7 @@
       var ctx = canvas.getContext('2d'); 
        
       // Define the sun, earth, and moon objects 
-      var sun = {x: canvas.width / 2, y: canvas.height / 2, radius: 50, color: 
-'yellow'}; 
+      var sun = {x: canvas.width / 2, y: canvas.height / 2, radius: 50, color:'yellow'}; 
       var earth = { radius: 20, angle: 1}; 
       var moon = {radius: 10, angle: 1}; 
        
@@ -33,11 +32,11 @@
         ctx.fillStyle = sun.color; 
         ctx.fill(); 
          
- //kakshe(round line) 
- ctx.strokeStyle="black"; 
- ctx.beginPath(); 
- ctx.arc(400,305,200,0,2*Math.PI); 
- ctx.stroke(); 
+        //kakshe(round line) 
+        ctx.strokeStyle="black"; 
+        ctx.beginPath(); 
+        ctx.arc(400,305,200,0,2*Math.PI); 
+        ctx.stroke(); 
   
         // Draw the earth 
         ctx.beginPath(); 
@@ -59,9 +58,9 @@
         moon.x = earth.x + 50 * Math.cos(moon.angle); 
         moon.y = earth.y + 50 * Math.sin(moon.angle); 
                
- // Request the next animation frame 
+        // Request the next animation frame 
         requestAnimationFrame(animate); 
-      } 
+        } 
        
       // Start the animation loop 
       animate(); 
