@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>DOCUMENT</TITLE>
+<STYLE>
+body
+{
+background-color:violet;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+#maincontainer
+{
+border-radius:10px;
+overflow:hidden;
+background-color:white;
+min-width:300px;
+}
+
+h3{
+text-align:center;
+}
+
+#next{
+margin-top:20px;
+}
+
+button{
+border:none;
+background-color:purple;
+color:white;
+display:block;
+width:100%;
+padding:5px;
+}
+
+button:hover{
+background-color:indigo;
+}
+</style>
+</head>
+<body>
+<div id="maincontainer">
+<div>
+<h3 id="question">question</h3>
+</div>
+<input type="radio" id="a" name="ans">
+<label for="a" id="Aans">option 1</label><br>
+<input type="radio" id="b" name="ans">
+<label for="b" id="Bans">option 2</label><br>
+<input type="radio" id="c" name="ans">
+<label for="c" id="Cans">option 3</label><br>
+<input type="radio" id="d" name="ans">
+<label for="d" id="Dans">option 4</label><br>
+<button id="next" onclick="submit()">next</button>
+<br>
+<button id="score" onclick="showscore()">score</button></br>
+</div>
+<script>
+const arr=[
+{
+q:"what is the full form of RAM",
+a:"random access memory",
+b:"read only memory",
+c:"read access memory",
+d:"none of the above",
+r:"a"
+},
+{
+q:"what is capital of france?",
+a:"paris",
+b:"london",
+c:"berlin",
+d:"madrid",
+r:"a"
+},
+{
+q:"what is the largest planet in our solar system?",
+a:"mars",
+b:"jupiter",
+c:"earth",
+d:"venus",
+r:"b"
+},
+{
+q:"what is the smallest countrey in the world?",
+a:"monaco",
+b:"vatscancity",
+c:"liechlenstien",
+d:"san marino",
+r:"b"
+},
+{
+q:"what is cthe highest mountain in the world?",
+a:"mount everest",
+b:"k2",
+c:"bkangchenjunga",
+d:"lhotse",
+r:"a"
+}
+];
+var i=0;
+var score=0;
+
+function loadquestion()
+{
+document.getElementById("question").innerHTML=arr[i].q;
+document.getElementById("Aans").innerHTML=arr[i].a;
+document.getElementById("Bans").innerHTML=arr[i].b;
+document.getElementById("Cans").innerHTML=arr[i].c;
+document.getElementById("Dans").innerHTML=arr[i].d;
+document.getElementById("a").checked=false;
+document.getElementById("b").checked=false;
+document.getElementById("c").checked=false;
+document.getElementById("d").checked=false;
+}
+
+function submit()
+{
+const optionchecked=document.querySelector('input[name="ans"]:checked');
+if(!optionchecked)
+{
+alert("please select an option before proceeding");
+return;
+}
+
+ if(optionchecked.id===arr[i].r)
+ { 
+  score++;
+ }
+ i++;
+ if(i<arr.length)
+ {
+  loadquestion();
+ }
+ else
+ {
+  alert("quiz complete");
+document.getElementById("next").disabled=true;
+ }
+}
+
+function showscore()
+{
+ alert("your score is:"+score);
+}
+
+loadquestion();
+</script>
+</body>
+</html>
