@@ -1,0 +1,62 @@
+<html>
+<head>
+<script>
+var comp=[
+'source-over','source-in','source-out','source-atop','destination-over','destination-in',
+'destination-out','destination-atop','lighter','darker','copy','xor'];
+
+function drawshape()
+{
+for(i=0;i<comp.length;i++)
+{
+document.getElementById("l"+i).innerText=comp[i];
+var ctx=document.getElementById("tut"+i).getContext("2d");
+ctx.fillStyle="pink";
+ctx.fillRect(15,15,70,70);
+ctx.globalCompositeOperation=comp[i];
+ctx.fillStyle="red";
+ctx.beginPath();
+ctx.arc(75,75,35,0,Math.PI*2,true);
+ctx.fill();
+}
+}
+</script>
+</head>
+<body onload="drawshape();">
+<table border="1" align="center">
+<tr>
+<td><canvas id="tut0" width="125" height="125"></canvas><br/>
+<label id="l0"></label></td>
+<td><canvas id="tut1" width="125" height="125"></canvas><br/>
+<label id="l1"></label></td>
+<td><canvas id="tut2" width="125" height="125"></canvas><br/>
+<label id="l2"></label></td>
+</tr>
+<tr>
+<td><canvas id="tut3" width="125" height="125"></canvas><br/>
+<label id="l3"></label></td>
+<td><canvas id="tut4" width="125" height="125"></canvas><br/>
+<label id="l4"></label></td>
+<td><canvas id="tut5" width="125" height="125"></canvas><br/>
+<label id="l5"></label></td>
+</tr>
+<tr>
+<td><canvas id="tut6" width="125" height="125"></canvas><br/>
+<label id="l6"></label></td>
+<td><canvas id="tut7" width="125" height="125"></canvas><br/>
+<label id="l7"></label></td>
+<td><canvas id="tut8" width="125" height="125"></canvas><br/>
+<label id="l8"></label></td>
+</tr>
+<tr>
+<td><canvas id="tut9" width="125" height="125"></canvas><br/>
+<label id="l9"></label></td>
+<td><canvas id="tut10" width="125" height="125"></canvas><br/>
+<label id="l10"></label></td>
+<td><canvas id="tut11" width="125" height="125"></canvas><br/>
+<label id="l11"></label></td>
+</tr>
+</table>
+
+</body>
+</html>
