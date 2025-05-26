@@ -1,15 +1,14 @@
-<!DOCTYPE html> 
 <html> 
   <head> 
-    <meta charset="UTF-8"> 
     <title>Sun, Earth and Moon Animation</title> 
     <style> 
       canvas { 
         border: 1px solid blue; 
+        background-color: blue;
       } 
     </style> 
   </head> 
-  <body bgcolor="blue"> 
+  <body> 
     <canvas id="canvas" width="800" height="600" ></canvas> 
     <script> 
        // Set up the canvas and drawing context 
@@ -33,9 +32,9 @@
         ctx.fill(); 
          
         //kakshe(round line) 
-        ctx.strokeStyle="black"; 
         ctx.beginPath(); 
         ctx.arc(400,305,200,0,2*Math.PI); 
+        ctx.strokeStyle="black"; 
         ctx.stroke(); 
   
         // Draw the earth 

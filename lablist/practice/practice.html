@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>practice</title>
+</head>
+<body>
+
+    <canvas id="canvas" width="600" height="600">
+
+    </canvas>
+
+    <script>
+    var canvas =document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    canvas.style.backgroundColor = "blue";
+    var issmiling =false;
+
+function drawface()
+{
+    ctx.beginPath();
+    ctx.arc(300,300,170,0,Math.PI*2);
+    ctx.fillStyle="yellow";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(220,220,15,0,Math.PI*2,true);
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(380,220,15,0,Math.PI*2,true);
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(300,320);
+    ctx.quadraticCurveTo(250,250,300,280);
+    ctx.lineWidth=5;
+    ctx.stroke()
+
+}
+
+function sad(){
+    ctx.beginPath();
+    ctx.arc(300,400,50,Math.PI,0);
+	ctx.stroke();
+
+}
+
+function smile(){
+   ctx.beginPath();
+	ctx.arc(300,400,50,0,Math.PI);
+	ctx.stroke();
+}
+        
+   
+
+function toggleface()
+{
+    if(issmiling)
+    {
+        drawface();    
+        smile();
+        issmiling=false;
+    }
+    else
+    {
+        drawface();
+        sad();
+        issmiling=true;
+    }
+}
+toggleface();
+
+</script>
+<button onclick="toggleface()">toggleface</button>
+</body>
+</html>

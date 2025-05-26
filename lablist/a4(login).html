@@ -1,217 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-*::before,*::after{
-padding:0;
-margin:0;
-box-sizing:border-box;}
-body {
-font-family: Arial, Helvetica, sans-serif; 
-color:cyan;
-}
+  <style>
+    *::before, *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-input[type=text], input[type=password] 
-{
-width: 100%;
-font-weight:bold;
-color:white;
-display: inline-block;
-background-color: transparent;
-border: none;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #031321;
+      font-family: Consolas, Arial, sans-serif;
+      color: cyan;
+    }
 
-button {
-  color: cyan;
-  padding: 14px 20px;
-  border-style: none;
-  cursor: pointer;
-  background-color: transparent;
-  width: 50%;
-  text-decoration:none;
-  text-transform:uppercase;
-  overflow:hidden;
-  transition:.5s;
-  margin-top:40px;
-  border:3px solid rgba(13,211,182);
-  
-}
-div:before{
-content:"";
-background-image:conic-gradient(#04b0ee 20deg,transparent 100deg);
-height:350%;
-width:135%;
-position:absolute;
-left:-25%;
-top:-25%;
-animation:rotate 2s infinite linear;
-}
+    .glow-box {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
 
-div:after{
-content:"";
-height:94%;
-width:94%;
-position:absolute;
-background-color:#1c1b29;
-border-radius:5px;
-top:3%;
-left:3%;
-color:#04b0ee;
-display:grid;
-font-size:20px;
-}
+    .glow-box::before {
+      content: "";
+      background-image: conic-gradient(#04b0ee 20deg, transparent 100deg);
+      height: 350%;
+      width: 135%;
+      position: absolute;
+      left: -25%;
+      top: -25%;
+      animation: rotate 2s infinite linear;
+    }
 
+    .glow-box::after {
+      content: "";
+      height: 94%;
+      width: 94%;
+      position: absolute;
+      background-color: #1c1b29;
+      border-radius: 5px;
+      top: 3%;
+      left: 3%;
+      z-index: 1;
+    }
 
-button:hover {
-    Letter-spacing:5px;
-    animation: glow 2500ms infinite;
-    color:white
- }
- 
+    form {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+      color: cyan;
+    }
 
- 
-@keyframes glow {
+    input[type=text], input[type=password] {
+      width: 100%;
+      font-weight: bold;
+      color: white;
+      display: inline-block;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid cyan;
+      padding: 10px 0;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
 
-50% { background-color: cyan; box-shadow:10px 10px 80px cyan; }
-100% { background-color: cyan; box-shadow:10px 10px 80px cyan;}
-}-->
-body{
-margin:0;
-padding:0;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-background:#031321;
-font-family:consolas;
-}
-a{
-position:relative;
-display:inline-block;
-padding:15px 30px;
-color:#2196f3;
-text-transform:uppercase;
-letter-spacing:4px;
-text-decoration:none;
-font-size:24px;
-overflow:hidden;
-transition:0.2s;
-}
-a span{
-position:absolute;
-display:block;
-}
-a span:nth-child(1){
- top:0;
- left:-100%;
- width:100%;
- height:2px;
- background:linear-gradient(90deg,transparent,#2196f3);
- animation:animate1 1s linear infinite;
- }
- @keyframes animate1{
- 0%{
- left:-100%;
- }
- 50%,100%{
- left:100%;
- }
- }
-a span:nth-child(2){
- top:-100%;
- right:0;
- width:2px;
- height:100%;
- background:linear-gradient(180deg,transparent,#2196f3);
- animation:animate2 1s linear infinite;
- animation-delay:.25s;
- }
-@keyframes animate2{
- 0%{
- top:-100%;
- }
- 50%,100%{
- top:100%;
- }
- }
-a span:nth-child(3){
- bottom:0;
- right:-100%;
- width:100%;
- height:2px;
- background:linear-gradient(270deg,transparent,#2196f3);
- animation:animate3 1s linear infinite;
- animation-delay:.5s;
- }
-@keyframes animate3{
- 0%{
- right:-100%;
- }
- 50%,100%{
- right:100%;
- }
- }
-a span:nth-child(4){
- bottom:-100%;
- left:0;
- width:2px;
- height:100%;
- background:linear-gradient(360deg,transparent,#2196f3);
- animation:animate4 1s linear infinite;
- animation-delay:.75s;
- }
-@keyframes animate4{
- 0%{
- bottom:-100%;
- }
- 50%,100%{
- bottom:100%;
- }
- }
- 
- a:hover {
-    Letter-spacing:5px;
-    animation: glow 1500ms infinite;
-    color:white
- }
- 
+    button {
+      color: cyan;
+      padding: 14px 20px;
+      border-style: none;
+      cursor: pointer;
+      background-color: transparent;
+      width: 100%;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      border: 3px solid rgba(13, 211, 182);
+    }
 
-@keyframes glow {
+    button:hover {
+      letter-spacing: 2px;
+      animation: glow 1.5s infinite;
+      color: white;
+    }
 
-50% { background-color: cyan; box-shadow:10px 10px 80px cyan; }
-100% { background-color: cyan; box-shadow:10px 10px 80px cyan;}
-}
-</style>
+    @keyframes glow {
+      50% {
+        background-color: cyan;
+        box-shadow: 0 0 20px cyan;
+      }
+      100% {
+        background-color: cyan;
+        box-shadow: 0 0 20px cyan;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
+<body>
 
-
-<body bgcolor=#36454F><br><br><br><br><br><br><br><br><br><br>
-<table bgcolor=black align="center" height="400" width="400">
-<tr><td>
-<center>
-<h2>Login</h2>
-</center>
-
-<form action="/action_page.php" method="post" >
+<div class="glow-box">
+  <form action="/action_page.php" method="post">
+    <center><h2>Login</h2></center>
 
     <label for="uname"><b>Username</b></label>
-    <input type= "text" color="white" placeholder="Enter Username" name="uname" required >
-    <hr>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required><hr>
-        <br><br></label>
-		<!--<div>
-    <button type="submit">SUBMIT</button></div>-->
-	<a href="a">
-	<span></span>
-	<span></span>
-	<span></span>
-	<span></span>
-	SUBMIT</a>
-</form>
-</td>
-</tr>
-</table>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
 </body>
 </html>

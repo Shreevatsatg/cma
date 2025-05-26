@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>solarsystem</title>
+    <style>
+        #canvas{
+            background-color: blue;
+            border: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" >
+
+    </canvas>
+    <script>
+    var canvas= document.getElementById('canvas');
+    var ctx=canvas.getContext('2d');
+
+    var sun={x:canvas.width/2,y:canvas.height/2,radius:50,color:"yellow"}
+    var earth={radius:30,angle:1}
+    var moon={radius:10,angle:1}
+
+    function animate()
+    {
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+
+  //sun
+    ctx.beginPath();
+    ctx.arc(sun.x,sun.y,sun.radius,0,2*Math.PI);
+    ctx.fillStyle=sun.color;
+    ctx.fill()
+
+  //kakshe
+    ctx.beginPath();
+    ctx.arc(400,300,200,0,2*Math.PI)
+    ctx.strokeStyle="black";
+    ctx.stroke();
+
+  //earth
+    ctx.beginPath()
+    ctx.arc(earth.x,earth.y,earth.radius,0,2*Math.PI);
+    ctx.fillStyle="green";
+    ctx.fill()
+
+  //moon
+    ctx.beginPath()
+    ctx.arc(moon.x,moon.y,moon.radius,0,2*Math.PI);
+    ctx.fillStyle="white";
+    ctx.fill();
+
+    earth.angle+=0.01;
+    moon.angle+=0.05;
+
+    earth.x=sun.x+200*Math.cos(earth.angle);
+    earth.y=sun.y+200*Math.sin(earth.angle);
+
+    moon.x=earth.x+200*Math.cos(moon.angle);
+    moon.y=earth.y+200*Math.sin(moon.angle);
+
+    requestAnimationFrame(animate);
+    }
+    animate();
+    </script>
+</body>
+</html>
+
+
+
+
+
+ }
+
+
+    </script>
+</body>
+</html>
